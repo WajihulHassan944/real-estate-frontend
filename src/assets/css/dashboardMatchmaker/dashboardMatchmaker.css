@@ -1,0 +1,223 @@
+.matchMakerWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding:20px;
+}
+.matchMakerWrapper h1{
+    font-family: 'Raleway',sans-serif;
+    font-weight: 700;
+    margin-top:20px;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color:#2E86AB;
+    margin-left:10%;
+}
+.matchMakerMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    gap:30px;
+}
+.matchMakerMain .matchMakerInput{
+    width:300px;
+    position: relative;
+    margin-bottom: 5px;
+    z-index: 1;
+}
+.matchMakerMain .matchMakerInput input{
+    width:100%;
+    padding:10px 15px;
+    border:2px solid #C64C7B;
+    border-radius: 30px;
+}
+.matchMakerMain .matchMakerInput input::placeholder{
+    color:#C64C7B;
+}
+
+.matchMakerMain .matchMakerInput .searchIcon {
+    position: absolute;
+    top: 50%; 
+    right: 15px; 
+    transform: translateY(-50%); 
+    color:#C64C7B;
+    font-size:23px;
+  }
+  .matchMakerButtonsWrapper{
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+    width: 60%; 
+  }
+  .matchMakerButtonsWrapper button {
+    margin: 20px;
+    padding: 10px 30px;
+    background: rgba(46, 134, 171, 0.5); /* Adjusted to 50% opacity */
+    color: #fff;
+    border-radius: 8px;
+    position: relative; /* Set the button as the positioning context */
+    display: inline-block;
+    
+  }
+  
+  .matchMakerButtonsWrapper .activeBtn{
+    background: #2E86AB;
+  }
+  .matchMakerSubmitBtn{
+    margin-top:70px;
+    padding:10px 30px;
+    border-radius: 20px;
+    background: #2E86AB;
+    color:#fff;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+  }
+
+
+  .matchMakerButtonsWrapper button::after {
+    content: ''; /* No text, just the shape */
+    position: absolute;
+    top: 0; /* Align to the top */
+    right: 8px; /* Align to the right */
+    width: 15px; /* Width of the triangle */
+    height: 15px; /* Height of the triangle */
+    background: #fff; /* Color of the triangle */
+    clip-path: polygon(50% 100%, 0 0, 100% 0); /* Creates a triangle pointing down */
+  }
+
+
+
+  /* Dropdown container */
+.dropdownWrapper {
+    position: relative;
+    
+  }
+  
+  /* Dropdown content */
+  .dropdown {
+    position: absolute;
+    top: 80%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  /* Dropdown options */
+  .dropdownOption {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 20px;
+    transition: background 0.2s ease;
+    margin-bottom: 5px;
+  }
+  
+  .dropdownOption:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Hover effect for dropdown options */
+  .dropdownOption:hover {
+    background: rgba(46, 134, 171, 0.1);
+  }
+  
+  /* Selected option styling */
+  .dropdownOption.selected {
+    background: #2E86AB;
+    color: #fff;
+  }
+  
+  /* Circle design for selected options */
+  .dropdownOption.selected::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    background: #fff;
+    border: 2px solid #2E86AB;
+    border-radius: 50%;
+  }
+  
+  .dropdownOption::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    background: transparent;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+  }
+  
+
+  /* General adjustments for small screens */
+@media (max-width: 768px) {
+    .matchMakerWrapper {
+      align-items: center; /* Center the content for better alignment */
+    }
+  
+    .matchMakerWrapper h1 {
+      font-size: 27px; /* Reduce the font size for smaller screens */
+      margin-left: 0; /* Center-align the heading */
+      text-align: center; /* Center-align the text */
+      margin-bottom: 20px;
+    }
+  
+    .matchMakerMain {
+      gap: 20px; /* Reduce the gap between elements */
+    }
+  
+    .matchMakerMain .matchMakerInput {
+      width: 90%; /* Make input field responsive to screen size */
+      margin-bottom: 10px;
+    }
+  
+    .matchMakerButtonsWrapper {
+      width: 100%; /* Allow buttons to span the full width */
+     gap: 10px;
+    }
+  }
+  
+  /* For very small screens (like mobile phones) */
+  @media (max-width: 480px) {
+    .matchMakerMain{
+        padding:0 10px;
+        text-align: center;
+        
+       
+    }
+    .matchMakerWrapper h1 {
+      font-size: 20px; /* Further reduce heading size */
+      margin-bottom: 15px;
+    }
+  
+    .matchMakerMain .matchMakerInput input {
+      padding: 8px 10px; /* Reduce padding for input field */
+      font-size: 14px; /* Adjust font size for input */
+    }
+  
+    .matchMakerMain .matchMakerInput .searchIcon {
+      font-size: 20px; /* Slightly smaller icon size */
+      right: 10px;
+    }
+  
+    .matchMakerButtonsWrapper button {
+        margin: 20px;
+       margin-bottom: 10px;
+       margin-top:10px; 
+      }
+  }
+  

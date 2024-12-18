@@ -1,0 +1,118 @@
+.dashboardDynamicSection{
+    width:100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-left: 300px;
+    flex-direction: column;
+}
+.dashboardDynamicSection .toggleSideMenu {
+    position: absolute;
+    top: -50px; /* Align to the top */
+    left: 50%; /* Move horizontally to the center */
+    transform: translateX(-50%); /* Adjust for center alignment */
+    display: none;
+    color:#2E86AB;
+  }
+  
+.dashboardDynamicSection .dashboardNavigationDynamic{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width:300px;
+    background: #2E86AB;
+    border-radius: 0 30px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:30px 0;
+    padding-top:70px;
+    z-index: 9;
+   
+}
+
+/* Keyframes for slide in animation */
+@keyframes slideIn {
+    from {
+      transform: translateX(-100%); /* Start off-screen to the left */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0); /* Slide to normal position */
+      opacity: 1; /* Fade in */
+    }
+  }
+  
+
+/* Keyframes for slide out animation */
+@keyframes slideOut {
+    from {
+      transform: translateX(0); /* Start at normal position */
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%); /* Slide out to the left */
+      opacity: 0; /* Fade out */
+    }
+  }
+.dashboardDynamicSection .dashboardNavigationDynamic .sideNavLink{
+    color:#fff;
+    margin:5px 0;
+    padding:10px 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    width:100%;
+    text-align: center;
+}
+
+.dashboardDynamicSection .dashboardNavigationDynamic .sideNavLink.active {
+    position: relative; /* Ensures the pseudo-element is positioned relative to this element */
+    background: #275264;
+    color: white; /* Adjust text color for better contrast */
+  }
+  
+  .dashboardDynamicSection .dashboardNavigationDynamic .sideNavLink.active::after {
+    content: ''; /* No text, just the shape */
+    position: absolute;
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    height: 100%; /* Match the height of the link */
+    width: 25px; /* Adjust the width for proportional arrow shape */
+    background: #fff; /* Arrow color */
+    clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Creates the `<` shape */
+  }
+  
+
+
+
+/* For small screens (up to 768px width) */
+@media (max-width: 768px) {
+    .dashboardDynamicSection .dashboardNavigationDynamic.show {
+      display: flex; /* Show sidebar when the "show" class is added */
+    }
+    .dashboardDynamicSection .toggleSideMenu {
+        display: block; /* Show the toggle menu on smaller screens */
+      }
+      .dashboardDynamicSection{
+        padding-left: 0;
+      }
+      
+.dashboardDynamicSection .dashboardNavigationDynamic{
+ 
+    animation: slideOut 0.5s forwards;
+}
+.dashboardDynamicSection .dashboardNavigationDynamic.show{
+   
+    animation: slideIn 0.5s forwards; 
+}
+  }
+  
+  /* For larger screens (above 768px width) */
+  @media (min-width: 769px) {
+    .dashboardDynamicSection .dashboardNavigationDynamic {
+      display: flex; /* Sidebar is always visible on larger screens */
+    }
+  }

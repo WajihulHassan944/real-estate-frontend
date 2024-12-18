@@ -1,0 +1,169 @@
+/* Custom CSS for search and register elements */
+.search, .register {
+    position: relative;
+  }
+  .search-input-mobile {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px); /* Start from above */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .search-input-mobile.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+  }
+  
+  .register-dropdown-mobile {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px); /* Start from above */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .register-dropdown-mobile.show {
+    display: block;
+    opacity: 1;
+    text-align: center;
+    transform: translateY(0); /* Slide into place */
+  }
+  
+  .register-dropdown-mobile a {
+    display: block;
+    padding: 8px 16px;
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .register-dropdown-mobile a:hover {
+    background-color: #f4f4f4;
+  }
+  .register-dropdown {
+    position: absolute;
+    top: 100%; /* Position below the button */
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: 200px;
+    margin-top: 8px;
+    visibility: hidden; /* Hidden initially */
+    opacity: 0;
+    transform: translateY(-20px); /* Start above */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .register-dropdown.show {
+    visibility: visible; /* Ensure it is visible */
+    opacity: 1;
+    transform: translateY(0); /* Move into view */
+    display: block;
+  }
+  
+  .search-input {
+    position: absolute;
+    top: 100%; /* Position below the button */
+    left: -100px;
+    margin-top: 28px;
+    visibility: hidden; /* Hidden initially but can still animate */
+    opacity: 0;
+    transform: translateY(-20px); /* Start above */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+  }
+  
+  .search-input.show {
+    visibility: visible; /* Ensure it is visible */
+    opacity: 1;
+    transform: translateY(0); /* Move into view */
+    display: block;
+  }
+  
+  
+  /* Styling for search input */
+  .search-input input {
+    padding-left: 30px; /* Space for the icon */
+  }
+  
+  .search-btn {
+    cursor: pointer;
+  }
+  
+  /* Styling for register dropdown links */
+  .register-dropdown a {
+    display: block;
+    padding: 8px 16px;
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .register-dropdown a:hover {
+    background-color: #f4f4f4;
+  }
+
+  
+
+  .header-container{
+    width:100%;
+    max-width: 2460px;
+   
+    padding:0 7%;
+  }
+  .navbar-search-btn{
+    background: #2E86AB;
+    padding:7px 18px;
+    border-radius:7px;
+    color:#fff;
+    box-shadow: 0 10px 20px rgb(0, 0, 0,0.05);
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 22px;
+  }
+  .navbar-search-btn:hover{
+    background: #1b5d7a;
+  }
+  .logo-image{
+    width: 70px;
+    padding:6px 0;
+    margin-right: 20px;
+  }
+  
+  .logo-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-text p{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 21px;
+    color:#154D7C;
+  }
+  .search-mobile{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0 2%;
+  }
+}
+
+@media (max-width: 767px) {
+ 
+  .logo-image{
+    width: 70px;
+    padding:6px 0;
+    margin-right: 8px;
+  }
+  
+.logo-text p{
+  font-weight: 500;
+  font-size: 17px;
+}
+}
