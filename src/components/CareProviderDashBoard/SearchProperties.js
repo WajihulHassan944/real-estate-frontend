@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../../assets/css/dashboardMatchmaker/dashboardMatchmaker.css";
 import { FiSearch } from 'react-icons/fi';
+import Image from "../../assets/images/image5.png";
 
 const SearchProperties = () => {
    const [activeDropdown, setActiveDropdown] = useState(null); // Track active dropdown
@@ -72,8 +73,8 @@ const SearchProperties = () => {
 
 
 
-       <div className="bg-opacity-14 p-8 pb-14 shadow-md" style={{ borderTopLeftRadius: '30px', width:'100%', background: 'rgba(198, 76, 123, 0.10)'}}>
-      <h2 className="text-2xl font-extrabold font-montserrat py-4 px-8 text-[#2E86AB] mb-6">Saved Properties</h2>
+       <div className=" p-8 pb-14" style={{ width:'100%'}}>
+      <h2 className="text-2xl font-extrabold font-montserrat py-4 px-8 text-[#2E86AB] mb-6">Search Results</h2>
      
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
        

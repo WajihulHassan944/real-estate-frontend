@@ -12,24 +12,34 @@ const LoginForm = () => {
 
   // Accessing authentication state
   const { loading, error, user } = useSelector((state) => state.auth);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     toast.loading("Logging in...");
     dispatch(loginUser({ email, password }))
       .unwrap()
       .then((result) => {
-        const token = result.token;  toast.dismiss(); // Dismiss the loading toast
+        const token = result.token;
+        const userType = result.user.type;
+        toast.dismiss(); // Dismiss the loading toast
         toast.success("Login successful!");
         console.log('Token:', token);
-        navigate('/LandlordDashboard');
+
+        // Navigate based on user type
+        if (userType === 'landlord') {
+          navigate('/LandlordDashboard');
+        } else if (userType === 'careprovider') {
+          navigate('/careproviderdashboard');
+        } else {
+          toast.error('Unknown user type');
+        }
       })
       .catch((err) => {
         toast.dismiss(); // Dismiss the loading toast
         toast.error(`Login failed: ${err}`);
         console.error('Login failed:', err);
       });
-  };
-  
+  };  
   return (
     <div
       className="relative flex justify-center items-center h-screen bg-gray-100"

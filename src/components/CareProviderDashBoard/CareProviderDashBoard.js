@@ -11,10 +11,15 @@ import LeasedProperties from './LeasedProperties.js';
 import MyRequests from './MyRequests.js';
 import RequestPropertyForm from './RequestProperty/RequestPropertyForm.js';
 import SearchProperties from './SearchProperties.js';
+import { useSelector } from 'react-redux';
+import RequestDetails from './RequestDetails.jsx';
 function CareProviderDashBoard() {
-const [showMenu, setShowMenu] = useState(false);
+  const careprovider = useSelector((state) => state.careProvider); 
+  const [showMenu, setShowMenu] = useState(false);
   const [activeComponent, setActiveComponent] = useState('dashboard');
   const [activeLink, setActiveLink] = useState('dashboard');
+  const [selectedPropertyId, setSelectedPropertyId] = useState(null);
+    
   const handleLinkClick = (componentName, linkName) => {
     setActiveComponent(componentName);
     setActiveLink(linkName);  
@@ -28,6 +33,12 @@ const [showMenu, setShowMenu] = useState(false);
     setShowMenu(!showMenu);
   };
 
+  
+  const handleViewDetailsRequest = (id) => {
+    setSelectedPropertyId(id); // Store the selected property ID
+    setActiveComponent('viewRequest'); // Switch to edit Request component
+    setActiveLink('viewRequest');
+  };
 
 
   return (
@@ -45,7 +56,7 @@ const [showMenu, setShowMenu] = useState(false);
           </h1> 
           </div>
           <p className="text-3xl text-[#2E86AB] font-bold font-montserrat mt-2">
-            Welcome back, Anna!
+            Welcome back, {careprovider.fullName}!
           </p>
           
           <p className="text-xl text-[#C64C7B] font-medium font-raleway mt-2">
@@ -77,8 +88,10 @@ const [showMenu, setShowMenu] = useState(false);
 {activeComponent === 'savedProperties' && <SavedProperties />}
 {activeComponent === 'leasedProperties' && <LeasedProperties />}
 {activeComponent === 'requestProperty' && <RequestPropertyForm />}
-{activeComponent === 'myRequests' && <MyRequests />}
+{activeComponent === 'myRequests' && <MyRequests onViewDetailsRequest={handleViewDetailsRequest} />}
 {activeComponent === 'searchProperties' && <SearchProperties />}
+{activeComponent === 'viewRequest' && <RequestDetails id={selectedPropertyId} />}
+
     </div>
     
     

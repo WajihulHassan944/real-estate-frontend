@@ -50,7 +50,8 @@ function UploadPropertyForm({ onUpdateSuccess}) {
     separateToiletLocationType: "", // E.g., "Downstairs"
     numBathroomsInLocation: "", // E.g., 1
     numToiletsInLocation: "", // E.g., 1
-   
+    postalCode: null,
+    city: "",
   });
 
   

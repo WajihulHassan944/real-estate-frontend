@@ -10,6 +10,7 @@
     "axios": "^1.7.7",
     "install": "^0.13.0",
     "jwt-decode": "^4.0.0",
+    "leaflet": "^1.9.4",
     "npm": "^10.9.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -19,7 +20,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "cross-env PORT=3030 react-scripts start --host",
+    "start": "set PORT=3030 && react-scripts start --host",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,7 +52,10 @@
     "tailwindcss": "^3.0.24"
   },
   "options": {
-    "allowedHosts": ["localhost", ".localhost"],
-    "proxy": "http://172.25.0.226:3031"
+    "allowedHosts": [
+      "localhost",
+      ".localhost"
+    ],
+    "proxy": "http://172.25.0.226:3032"
   }
 }

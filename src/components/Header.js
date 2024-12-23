@@ -15,6 +15,8 @@ const Header = () => {
   const menuRef = useRef(null);
   const registerDropdownRef = useRef(null);
   const { isAuthenticatedLandlord } = useSelector((state) => state.auth);
+  const isAuthenticatedCareProvider = useSelector((state) => state.auth.isAuthenticatedCareProvider);
+
   const toggleMenu = () => setIsMenuOpen(prev => !prev);
   const toggleRegisterMenu = () => setIsRegisterMenuOpen(prev => !prev);
 
@@ -43,7 +45,7 @@ const Header = () => {
           Our Services
         </Link>
   
-        {isAuthenticatedLandlord ? (
+        {isAuthenticatedLandlord || isAuthenticatedCareProvider ? (
        
         <>    <div className="search-mobile">
         <div className="relative">
@@ -110,7 +112,7 @@ const Header = () => {
         )}
       </div>
     )
-  ), [isMenuOpen, isRegisterMenuOpen, isAuthenticatedLandlord]);
+  ), [isMenuOpen, isRegisterMenuOpen, isAuthenticatedLandlord, isAuthenticatedCareProvider]);
   
   
 
@@ -126,7 +128,7 @@ const Header = () => {
         </div>
 
         <div className="flex items-center space-x-6 ml-auto hidden lg:flex">
-  {isAuthenticatedLandlord ? (
+  {isAuthenticatedLandlord || isAuthenticatedCareProvider ? (
   
     <>
       <Link className="text-[#000000] text-lg hover:text-[#C64C7B]" to="/Services">

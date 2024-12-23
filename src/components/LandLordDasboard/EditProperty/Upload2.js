@@ -11,51 +11,32 @@ const PropertyFormPage2 = ({ propertyDetails, setPropertyDetails, onNext }) => {
     setPropertyDetails((prev) => {
       const updatedDetails = { ...prev };
   
-      // Set bathroom location and number of bathrooms for the specific location
       if (location === "upstairs") {
-        updatedDetails.numBathroomsInLocationUpstairs = value;
-        updatedDetails.bathroomLocation = "Upstairs"; // Set bathroom location
-        updatedDetails.bathroomLocationType = "Upstairs"; // Set bathroom location type
+        updatedDetails.numBathrooms = value; // Set total bathrooms upstairs
+        updatedDetails.bathroomLocation = "Upstairs"; // Set toilet location
+        updatedDetails.bathroomLocationType = "Upstairs"; // Set toilet location type
       } else if (location === "downstairs") {
-        updatedDetails.numBathroomsInLocationDownstairs = value;
-        updatedDetails.bathroomLocation = "Downstairs"; // Set bathroom location
-        updatedDetails.bathroomLocationType = "Downstairs"; // Set bathroom location type
+        updatedDetails.numBathroomsInLocation = value; // Set bathrooms downstairs
+        updatedDetails.bathroomLocation = "Downstairs"; // Set toilet location
+        updatedDetails.bathroomLocationType = "Downstairs"; // Set toilet location type
       }
-  
-      // Calculate total number of bathrooms
-      updatedDetails.numBathrooms =
-        (parseInt(updatedDetails.numBathroomsInLocationUpstairs) || 0) +
-        (parseInt(updatedDetails.numBathroomsInLocationDownstairs) || 0);
-  
-      // Set the total number of bathrooms for the specific location
-      updatedDetails.numBathroomsInLocation = updatedDetails.numBathrooms;
   
       return updatedDetails;
     });
   };
-  
   const handleToiletChange = (location, value) => {
     setPropertyDetails((prev) => {
       const updatedDetails = { ...prev };
   
-      // Set toilet location and number of toilets for the specific location
       if (location === "upstairs") {
-        updatedDetails.numToiletsInLocationUpstairs = value;
+        updatedDetails.numToilets = value; // Set total toilets upstairs
         updatedDetails.separateToiletLocation = "Upstairs"; // Set toilet location
         updatedDetails.separateToiletLocationType = "Upstairs"; // Set toilet location type
       } else if (location === "downstairs") {
-        updatedDetails.numToiletsInLocationDownstairs = value;
+        updatedDetails.numToiletsInLocation = value; // Set toilets downstairs
         updatedDetails.separateToiletLocation = "Downstairs"; // Set toilet location
         updatedDetails.separateToiletLocationType = "Downstairs"; // Set toilet location type
       }
-  
-      // Calculate total number of toilets
-      updatedDetails.numToilets =
-        (parseInt(updatedDetails.numToiletsInLocationUpstairs) || 0) +
-        (parseInt(updatedDetails.numToiletsInLocationDownstairs) || 0);
-  
-      // Set the total number of toilets for the specific location
-      updatedDetails.numToiletsInLocation = updatedDetails.numToilets;
   
       return updatedDetails;
     });
@@ -129,7 +110,6 @@ const PropertyFormPage2 = ({ propertyDetails, setPropertyDetails, onNext }) => {
         </div>
 
 
-
 {/* Bathrooms (Upstairs and Downstairs with numbers) */}
 <div className="col-span-2">
   <label className="block text-sm font-medium mb-2">Bathrooms</label>
@@ -139,7 +119,7 @@ const PropertyFormPage2 = ({ propertyDetails, setPropertyDetails, onNext }) => {
       <label className="block text-sm font-medium mb-2">Upstairs</label>
       <select
         className="w-full border rounded-lg p-2"
-        value={propertyDetails.numBathroomsInLocationUpstairs || ""}
+        value={propertyDetails.numBathrooms || ""}
         onChange={(e) => handleBathroomChange("upstairs", e.target.value)}
       >
         <option value="">Choose a number</option>
@@ -156,7 +136,7 @@ const PropertyFormPage2 = ({ propertyDetails, setPropertyDetails, onNext }) => {
       <label className="block text-sm font-medium mb-2">Downstairs</label>
       <select
         className="w-full border rounded-lg p-2"
-        value={propertyDetails.numBathroomsInLocationDownstairs || ""}
+        value={propertyDetails.numBathroomsInLocation || ""}
         onChange={(e) => handleBathroomChange("downstairs", e.target.value)}
       >
         <option value="">Choose a number</option>
@@ -169,7 +149,6 @@ const PropertyFormPage2 = ({ propertyDetails, setPropertyDetails, onNext }) => {
     </div>
   </div>
 </div>
-
 {/* Separate Toilets (Upstairs and Downstairs with numbers) */}
 <div className="col-span-2">
   <label className="block text-sm font-medium mb-2">Separate Toilets</label>
@@ -179,7 +158,7 @@ const PropertyFormPage2 = ({ propertyDetails, setPropertyDetails, onNext }) => {
       <label className="block text-sm font-medium mb-2">Upstairs</label>
       <select
         className="w-full border rounded-lg p-2"
-        value={propertyDetails.numToiletsInLocationUpstairs || ""}
+        value={propertyDetails.numToilets || ""}
         onChange={(e) => handleToiletChange("upstairs", e.target.value)}
       >
         <option value="">Choose a number</option>
@@ -196,7 +175,7 @@ const PropertyFormPage2 = ({ propertyDetails, setPropertyDetails, onNext }) => {
       <label className="block text-sm font-medium mb-2">Downstairs</label>
       <select
         className="w-full border rounded-lg p-2"
-        value={propertyDetails.numToiletsInLocationDownstairs || ""}
+        value={propertyDetails.numToiletsInLocation || ""}
         onChange={(e) => handleToiletChange("downstairs", e.target.value)}
       >
         <option value="">Choose a number</option>
@@ -324,9 +303,15 @@ const PropertyFormPage2 = ({ propertyDetails, setPropertyDetails, onNext }) => {
 </div>
 
 
-        <button type="submit" className="w-full mt-6 p-2 bg-blue-500 text-white rounded-lg">
-          Next
-        </button>
+<div className="col-span-full text-center mt-4">
+          <button
+            type="submit"
+            className="bg-custom-blue text-white rounded-lg px-6 py-2 font-bold hover:bg-blue-700"
+            style={{ backgroundColor: '#a53864' }}
+          >
+            Save and Continue
+          </button>
+        </div>
       </form>
     </div>
   );

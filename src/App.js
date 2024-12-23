@@ -17,6 +17,8 @@ import { checkUserToken } from './Redux/authSlice';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CareProviderDashBoard from './components/CareProviderDashBoard/CareProviderDashBoard';
+import AgentDashboard from './components/AgentDashboard/AgentDashboard';
+import AgentforCareProvider from './components/AgentforCareProvider/AgentforCareProvider';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,7 +31,7 @@ const App = () => {
   <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/property/:id" element={<PropertyDetails />} />
+     {/*    <Route path="/property/:id" element={<PropertyDetails />} /> */}
         <Route path="/Services" element={<Services />} />
         <Route path="/register-care-provider" element={<RegistrationCareProvider />} />
         <Route path="/register-agents-care-provider" element={<RegistrationAgentsofCareProviders />} />
@@ -40,10 +42,19 @@ const App = () => {
         <Route path="/uploadpropertyform" element={<UploadPropertyForm />} />
       
 
-        <Route path="/LandlordDashboard" element={<PrivateRoute element={<LandlordDashboard />} />} />
+        <Route 
+  path="/LandlordDashboard" 
+  element={<PrivateRoute element={<LandlordDashboard />} role="isAuthenticatedLandlord" />} 
+/>
 
-        <Route path="/careproviderdashboard" element={<CareProviderDashBoard />} />
-         
+<Route 
+  path="/careproviderdashboard" 
+  element={<PrivateRoute element={<CareProviderDashBoard />} role="isAuthenticatedCareProvider" />} 
+/>
+
+        <Route path="/agentdashboard" element={<AgentDashboard />} />
+           <Route path="/agent-careprovider-dashboard" element={<AgentforCareProvider />} />
+                
        
       </Routes>
     

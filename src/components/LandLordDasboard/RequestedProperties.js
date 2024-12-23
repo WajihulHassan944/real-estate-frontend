@@ -47,6 +47,8 @@ const RequestedProperties = ({ propertyId }) => {
           <PropertyDetail title="Property Type" value={property.propertyType} />
           <PropertyDetail title="Property Status" value={property.status} />
           <PropertyDetail title="Property Address" value={property.address} />
+          <PropertyDetail title="City" value={property.city} />
+          <PropertyDetail title="Postal Code" value={property.postalCode} />
         
           <PropertyDetail title="Number of Bedrooms" value={property.numOfBedrooms} />
           <PropertyDetail title="HMO" value={property.isHMO ? "Yes" : "No"} />
@@ -57,11 +59,11 @@ const RequestedProperties = ({ propertyId }) => {
           <PropertyDetail title="Number of Reception Rooms" value={property.numOfReceptionRooms} />
           <PropertyDetail
             title="Bathrooms"
-            value={`${property.numBathroomsInLocation}`}
+            value={`Upstairs: ${property.numBathrooms}, Downstairs: ${property.numBathroomsInLocation}`}
           />
           <PropertyDetail
             title="Separate Toilets"
-            value={`${property.numToiletsInLocation}`}
+            value={`Upstairs: ${property.numToilets}, Downstairs: ${property.numToiletsInLocation}`}
           />
           <PropertyDetail title="Double Glazing" value={property.doubleGlazing ? "Yes" : "No"} />
           <PropertyDetail title="Central Heating" value={property.centralHeating ? "Yes" : "No"} />

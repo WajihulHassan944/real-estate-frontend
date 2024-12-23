@@ -1,10 +1,10 @@
 // src/components/WhyChooseUs.js
 
 import React from 'react';
-import House2 from '../assets/img/houses/house2.png';
-import House4 from '../assets/img/houses/house4.png';
-import House3 from '../assets/img/houses/house3.png';
-import '../components/CareProviderDashBoard/style.css'
+import House2 from '../../assets/img/houses/house2.png';
+import House4 from '../../assets/img/houses/house4.png';
+import House3 from '../../assets/img/houses/house3.png';
+import '../components/../CareProviderDashBoard/style.css'
 const WhyChooseUs = () => {
   return (
     <section className='bg-opacity-14  py-12 text-white' style={{ background: 'rgba(198, 76, 123, 0.10)' }}
